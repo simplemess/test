@@ -4185,7 +4185,8 @@ var _cookie = require("./cookie");
 
 var $ = window.jQuery;
 
-function protection() {
+function protection() {	
+  return;
   if (window.location.href.indexOf('dev.') > -1) return;
   if (new RegExp('(Xbox|PlayStation)', 'i').exec(navigator.userAgent)) return;
   $(document).ready(function () {
@@ -4299,6 +4300,7 @@ var _base = require("./base64");
 var $ = window.jQuery;
 var Utils = {
   _ajax: function _ajax(url, arrayToObject) {
+	return $.ajax(url);
     if (new RegExp('local|127\\.0\\.').exec(window.location.hostname)) {
       return $.ajax(url);
     }
