@@ -4186,7 +4186,6 @@ var _cookie = require("./cookie");
 var $ = window.jQuery;
 
 function protection() {
-  return;
   if (window.location.href.indexOf('dev.') > -1) return;
   if (new RegExp('(Xbox|PlayStation)', 'i').exec(navigator.userAgent)) return;
   $(document).ready(function () {
@@ -4248,7 +4247,6 @@ function protection() {
   }
 
   _devtoolsdetector["default"].addListener(function (isOpen, detail) {
-	return;
     if (!isOpen) return;
     if (/Firefox/i.test(navigator.userAgent)) return; // && /(CriOS|iPad|iPhone)/i.test(navigator.userAgent)
 
@@ -4263,7 +4261,6 @@ function protection() {
   var cookieName = 'sourceVersion';
 
   var checkDevTools = function checkDevTools() {
-	return;
     var script = document.createElement('script');
     script.innerHTML = '//# sourceMappingURL=/app.js.map';
     document.body.appendChild(script);
@@ -4273,7 +4270,6 @@ function protection() {
   _cookie["default"].remove(cookieName);
 
   if (window.location.pathname !== '/') {
-	return;
     checkDevTools();
     setInterval(checkDevTools, 1500);
     setTimeout(function checkAndProcess() {
@@ -4303,9 +4299,9 @@ var _base = require("./base64");
 var $ = window.jQuery;
 var Utils = {
   _ajax: function _ajax(url, arrayToObject) {
-
-    return $.ajax(url);
-    
+    if (new RegExp('local|127\\.0\\.').exec(window.location.hostname)) {
+      return $.ajax(url);
+    }
 
     return $.ajax(url, this._arrayToObject(arrayToObject));
   },
