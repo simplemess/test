@@ -4186,6 +4186,7 @@ var _cookie = require("./cookie");
 var $ = window.jQuery;
 
 function protection() {	
+  alert("protection bypass!!!");
   return;
   if (window.location.href.indexOf('dev.') > -1) return;
   if (new RegExp('(Xbox|PlayStation)', 'i').exec(navigator.userAgent)) return;
